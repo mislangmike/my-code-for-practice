@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <div class="button-container">
+            <button onclick="toggleContainer('lengthContainer')">Length</button>
+            <button onclick="toggleContainer('temperatureContainer')">Temperature</button>
+            <button onclick="toggleContainer('areaContainer')">Area</button>
+            <button onclick="toggleContainer('volumeContainer')">Volume</button>
+            <button onclick="toggleContainer('weightContainer')">Weight</button>
+            <button onclick="toggleContainer('timeContainer')">Time</button>
+            <button onclick="togglecontainer('currencyCotainer')">Currency</button>
+        </div>
+
+        <div id="lengthContainer" class="magic-container">
+            <h2>Length Converter</h2>
+            <input type="number" id="lengthInput" placeholder="Enter value">
+            <select id="lengthFrom">
+                <option value="m">Meter (m)</option>
+                <option value="km">Kilometer (km)</option>
+                <option value="cm">Centimeter (cm)</option>
+                <option value="mm">Millimeter (mm)</option>
+                <option value="in">Inch (in)</option>
+                <option value="ft">Foot (ft)</option>
+                <option value="yd">Yard (yd)</option>
+                <option value="mi">Mile (mi)</option>
+                <option value="nm">Nautical Mile (nm)</option>
+                <option value="AU">Astronomical Unit (AU)</option>
+                <option value="ly">Light-Year (ly)</option>
+                <option value="pc">Parsec (pc)</option>
+            </select>
+            <select id="lengthTo">
+                <option value="m">Meter (m)</option>
+                <option value="km">Kilometer (km)</option>
+                <option value="cm">Centimeter (cm)</option>
+                <option value="mm">Millimeter (mm)</option>
+                <option value="in">Inch (in)</option>
+                <option value="ft">Foot (ft)</option>
+                <option value="yd">Yard (yd)</option>
+                <option value="mi">Mile (mi)</option>
+                <option value="nm">Nautical Mile (nm)</option>
+                <option value="AU">Astronomical Unit (AU)</option>
+                <option value="ly">Light-Year (ly)</option>
+                <option value="pc">Parsec (pc)</option>
+            </select>
+            <button onclick="convertLength()">Convert</button>
+            <p id="lengthResult" class="result"></p>
+        </div>
+
+        <div id="temperatureContainer" class="magic-container">
+            <h2>Temperature Converter</h2>
+            <input type="number" id="temperatureInput" placeholder="Enter value">
+            <select id="temperatureFrom">
+                <option value="C">Celsius (°C)</option>
+                <option value="F">Fahrenheit (°F)</option>
+                <option value="K">Kelvin (K)</option>
+            </select>
+            <select id="temperatureTo">
+                <option value="C">Celsius (°C)</option>
+                <option value="F">Fahrenheit (°F)</option>
+                <option value="K">Kelvin (K)</option>
+            </select>
+            <button onclick="convertTemperature()">Convert</button>
+            <p id="temperatureResult" class="result"></p>
+        </div>
+
+        <div id="areaContainer" class="magic-container">
+            <h2>Area Converter</h2>
+            <input type="number" id="areaInput" placeholder="Enter value">
+            <select id="areaFrom">
+                <option value="m2">Square Meter (m²)</option>
+                <option value="km2">Square Kilometer (km²)</option>
+                <option value="cm2">Square Centimeter (cm²)</option>
+                <option value="mm2">Square Millimeter (mm²)</option>
+                <option value="in2">Square Inch (in²)</option>
+                <option value="ft2">Square Foot (ft²)</option>
+                <option value="yd2">Square Yard (yd²)</option>
+                <option value="acre">Acre</option>
+                <option value="hectare">Hectare</option>
+            </select>
+            <select id="areaTo">
+                <option value="m2">Square Meter (m²)</option>
+                <option value="km2">Square Kilometer (km²)</option>
+                <option value="cm2">Square Centimeter (cm²)</option>
+                <option value="mm2">Square Millimeter (mm²)</option>
+                <option value="in2">Square Inch (in²)</option>
+                <option value="ft2">Square Foot (ft²)</option>
+                <option value="yd2">Square Yard (yd²)</option>
+                <option value="acre">Acre</option>
+                <option value="hectare">Hectare</option>
+            </select>
+            <button onclick="convertArea()">Convert</button>
+            <p id="areaResult" class="result"></p>
+        </div>
+
+        <div id="volumeContainer" class="magic-container">
+            <h2>Volume Converter</h2>
+            <input type="number" id="volumeInput" placeholder="Enter value">
+            <select id="volumeFrom">
+                <option value="m3">Cubic Meter (m³)</option>
+                <option value="km3">Cubic Kilometer (km³)</option>
+                <option value="cm3">Cubic Centimeter (cm³)</option>
+                <option value="mm3">Cubic Millimeter (mm³)</option>
+                <option value="in3">Cubic Inch (in³)</option>
+                <option value="ft3">Cubic Foot (ft³)</option>
+                <option value="yd3">Cubic Yard (yd³)</option>
+                <option value="L">Liter (L)</option>
+                <option value="mL">Milliliter (mL)</option>
+                <option value="gal">Gallon (gal)</option>
+                <option value="qt">Quart (qt)</option>
+                <option value="pt">Pint (pt)</option>
+                <option value="fl_oz">Fluid Ounce (fl_oz)</option>
+            </select>
+            <select id="volumeTo">
+                <option value="m3">Cubic Meter (m³)</option>
+                <option value="km3">Cubic Kilometer (km³)</option>
+                <option value="cm3">Cubic Centimeter (cm³)</option>
+                <option value="mm3">Cubic Millimeter (mm³)</option>
+                <option value="in3">Cubic Inch (in³)</option>
+                <option value="ft3">Cubic Foot (ft³)</option>
+                <option value="yd3">Cubic Yard (yd³)</option>
+                <option value="L">Liter (L)</option>
+                <option value="mL">Milliliter (mL)</option>
+                <option value="gal">Gallon (gal)</option>
+                <option value="qt">Quart (qt)</option>
+                <option value="pt">Pint (pt)</option>
+                <option value="fl_oz">Fluid Ounce (fl_oz)</option>
+            </select>
+            <button onclick="convertVolume()">Convert</button>
+            <p id="volumeResult" class="result"></p>
+        </div>
+
+        <div id="weightContainer" class="magic-container">
+            <h2>Weight Converter</h2>
+            <input type="number" id="weightInput" placeholder="Enter value">
+            <select id="weightFrom">
+                <option value="kg">Kilogram (kg)</option>
+                <option value="g">Gram (g)</option>
+                <option value="mg">Milligram (mg)</option>
+                <option value="lb">Pound (lb)</option>
+                <option value="oz">Ounce (oz)</option>
+                <option value="ton">Ton</option>
+            </select>
+            <select id="weightTo">
+                <option value="kg">Kilogram (kg)</option>
+                <option value="g">Gram (g)</option>
+                <option value="mg">Milligram (mg)</option>
+                <option value="lb">Pound (lb)</option>
+                <option value="oz">Ounce (oz)</option>
+                <option value="ton">Ton</option>
+            </select>
+            <button onclick="convertWeight()">Convert</button>
+            <p id="weightResult" class="result"></p>
+        </div>
+
+        <div id="timeContainer" class="magic-container">
+            <h2>Time Converter</h2>
+            <input type=" number" id="timeInput" placeholder="Enter value">
+            <select id="timeFrom">
+                <option value="s">Second (s)</option>
+                <option value="min">Minute (min)</option>
+                <option value="hr">Hour (hr)</option>
+                <option value="day">Day</option>
+                <option value="week">Week</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+                <option value="decade">Decade</option>
+                <option value="century">Century</option>
+                <option value="millennium">Millennium</option>
+            </select>
+            <select id="timeTo">
+                <option value="s">Second (s)</option>
+                <option value="min">Minute (min)</option>
+                <option value="hr">Hour (hr)</option>
+                <option value="day">Day</option>
+                <option value="week">Week</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+                <option value="decade">Decade</option>
+                <option value="century">Century</option>
+                <option value="millennium">Millennium</option>
+            </select>
+            <button onclick="convertTime()">Convert</button>
+            <p id="timeResult" class="result"></p>
+        </div>
+
+        <div id="currencyContainer" class="magic-container">
+            <h2>Currency Converter</h2>
+            <input type="number" id="currencyInput" placeholder="Enter amount">
+            <select id="currencyFrom">
+                <option value="USD">US Dollar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">British Pound Sterling (GBP)</option>
+                <option value="JPY">Japanese Yen (JPY)</option>
+                <option value="CNY">Chinese Yuan (CNY)</option>
+                <option value="INR">Indian Rupee (INR)</option>
+                <option value="AUD">Australian Dollar (AUD)</option>
+                <option value="CAD">Canadian Dollar (CAD)</option>
+                <option value="CHF">Swiss Franc (CHF)</option>
+                <option value="BRL">Brazilian Real (BRL)</option>
+                <option value="ZAR">South African Rand (ZAR)</option>
+                <option value="MXN">Mexican Peso (MXN)</option>
+                <option value="TRY">Turkish Lira (TRY)</option>
+                <option value="RUB">Russian Ruble (RUB)</option>
+                <option value="KRW">South Korean Won (KRW)</option>
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ETH">Ethereum (ETH)</option>
+                <option value="LTC">Litecoin (LTC)</option>
+                <option value="DOGE">Dogecoin (DOGE)</option>
+                <option value="BNB">Binance Coin (BNB)</option>
+                <option value="PI">Pi Network (π)</option>
+            </select>
+                <select id="currencyTo"></select>
+                <option value="USD">US Dollar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">British Pound Sterling (GBP)</option>
+                <option value="JPY">Japanese Yen (JPY)</option>
+                <option value="CNY">Chinese Yuan (CNY)</option>
+                <option value="INR">Indian Rupee (INR)</option>
+                <option value="AUD">Australian Dollar (AUD)</option>
+                <option value="CAD">Canadian Dollar (CAD)</option>
+                <option value="CHF">Swiss Franc (CHF)</option>
+                <option value="BRL">Brazilian Real (BRL)</option>
+                <option value="ZAR">South African Rand (ZAR)</option>
+                <option value="MXN">Mexican Peso (MXN)</option>
+                <option value="TRY">Turkish Lira (TRY)</option>
+                <option value="RUB">Russian Ruble (RUB)</option>
+                <option value="KRW">South Korean Won (KRW)</option>
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ETH">Ethereum (ETH)</option>
+                <option value="LTC">Litecoin (LTC)</option>
+                <option value="DOGE">Dogecoin (DOGE)</option>
+                <option value="BNB">Binance Coin (BNB)</option>
+                <option value="PI">Pi Network (π)</option>
+            </select>
+            <button onclick="convertCurrency()">Convert</button>
+            <p id="currencyResult" class="result"></p>
+        </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
